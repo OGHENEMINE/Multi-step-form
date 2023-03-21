@@ -47,10 +47,7 @@ function AddOns({ currentStep, setCurrentStep, GoBack}) {
     ]
   );
 
-  // const [checkedState, setCheckedState] = useState(
-  //   new Array(addOns.length).fill(false)
-  // );
-
+ 
   const handleChange = (position) => {
     const updatedAddOns = addOns.map((addOn, index) => {
        if(index === position){
@@ -75,12 +72,10 @@ function AddOns({ currentStep, setCurrentStep, GoBack}) {
 
   
   return (
-    <div
-      className={classNames("w-full max-h-screen", {
+    <>
+      <form className={classNames("w-full max-h-screen", {
         hidden: currentStep !== 3,
-      })}
-    >
-      <form onSubmit={handleSubmit(onsubmit)}>
+      })} onSubmit={handleSubmit(onsubmit)}>
         <div className="bg-white lg:shadow-none lg:rounded-none shadow rounded-md lg:relative lg:top-0 lg:z-30 lg:py-0 px-6 xl:px-0 py-10 absolute top-28 left-1/2 -translate-x-1/2 md:max-w-[750px] w-full h-[500px]">
          
           <div className="text-gray-400 tracking-widest flex flex-col space-y-2">
@@ -100,6 +95,7 @@ function AddOns({ currentStep, setCurrentStep, GoBack}) {
               {addOns.map(({ name, desc, pricings, checked}, index) => (
                 <div
                   key={name}
+                  onClick={() => handleChange(index)}
                   className={classNames('flex items-center border-2 lg:px-5 px-2 py-1 h-20 rounded-md', {
                   "bg-indigo-50 border-indigo-400" : checked == true,
                   "border-gray-300 hover:border-indigo-400": checked !== true                 
@@ -143,15 +139,17 @@ function AddOns({ currentStep, setCurrentStep, GoBack}) {
           </div>
           <div className="md:-bottom-8 px-6 lg:px-0 bg-gray-50 -bottom-60 py-3 flex items-center justify-between absolute left-0 lg:bg-inherit right-0">
         <Button
+         aria-label='go back'
+          id='back'
           type='button'
           variant="back"
           onClick={() => setCurrentStep(currentStep - 1)}
         />
-          <Button variant="next" text="next step" />
+          <Button id='next' aria-label='next step' variant="next" text="next step" />
         </div>
         </div>        
       </form>
-    </div>
+    </>
   );
 }
 

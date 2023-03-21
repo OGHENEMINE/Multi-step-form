@@ -9,7 +9,7 @@ function Sidebar({ currentStep }) {
 
   return (
     <>
-      <div className="bg-[url('/images/bg-sidebar-mobile.svg')] lg:bg-[url('/images/bg-sidebar-desktop.svg')] lg:ml-2 lg:my-2 h-48 lg:h-[610px] shadow lg:shadow-lg lg:rounded-lg bg-center bg-cover w-full lg:w-[30%]">
+      <nav className="bg-[url('/images/bg-sidebar-mobile.svg')] lg:bg-[url('/images/bg-sidebar-desktop.svg')] lg:ml-2 lg:my-2 h-48 lg:h-[610px] shadow lg:shadow-lg lg:rounded-lg bg-center bg-cover w-full lg:w-[30%]">
         <div className="flex justify-center items-center gap-3 lg:gap-4 pt-6 md:pt-10 lg:block">
           {navList.map((item, index) => (
             <div
@@ -38,7 +38,7 @@ function Sidebar({ currentStep }) {
             </div>
           ))}
         </div>
-      </div>
+      </nav>
     </>
   );
 }

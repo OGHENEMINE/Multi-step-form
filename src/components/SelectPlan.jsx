@@ -98,7 +98,7 @@ function SelectPlan({ currentStep, setCurrentStep }) {
           </p>
           </div>
 
-        <p className="text-center text-xl font-semibold mt-4 text-red-500">
+        <p aria-live="aggressive" className="text-center text-xl font-semibold mt-4 text-red-500">
           {error}
         </p>
 
@@ -169,7 +169,7 @@ function SelectPlan({ currentStep, setCurrentStep }) {
                 name="toggleSwitch"
                 type="checkbox"
                 checked={checked}
-                readOnly
+                readOnly={true}
                 onClick={handleClick}
                 id="toggleSwitch"
                 className="peer sr-only"
@@ -186,11 +186,12 @@ function SelectPlan({ currentStep, setCurrentStep }) {
 
         <div className="md:bottom-0 px-6 lg:px-0 bg-gray-50 -bottom-32 py-3 flex items-center justify-between absolute left-0 lg:bg-inherit right-0">
         <Button
+          aria-label='go back'
           variant="back"
           onClick={() => setCurrentStep(currentStep - 1)}
         />
 
-        <Button variant="next" onClick={onsubmit} text="next step" />
+        <Button aria-label='next step' variant="next" onClick={onsubmit} text="next step" />
       </div>
       </div>
       

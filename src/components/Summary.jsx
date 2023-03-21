@@ -47,6 +47,8 @@ function Summary({ currentStep, setCurrentStep }) {
                   <div>
                     <h4 className="capitalize">{`${planName} (${planDuration})`}</h4>
                     <Button
+                      id='change'
+                      aria-label='change plan'
                       onClick={() => setCurrentStep(currentStep - 2)}
                       variant="change"
                       text="change"
@@ -64,13 +66,13 @@ function Summary({ currentStep, setCurrentStep }) {
                       key={name}
                       className="flex items-center justify-between mt-2 md:mt-4"
                     >
-                      <span className="text-gray-500 font-medium text-lg">
+                      <p className="inline-block text-gray-500 font-medium text-lg">
                         {name}
-                      </span>
+                      </p>
                       {pricing.map(({ duration, amount }) => (
-                        <span key={amount}>{`+$${amount}/${
+                        <p className="inline-block" key={amount}>{`+$${amount}/${
                           duration == "yearly" ? "yr" : "mo"
-                        }`}</span>
+                        }`}</p>
                       ))}
                     </p>
                   )) : <p className="text-center capitalize tracking-widest mt-4">No selected add-on to display</p>}
@@ -90,11 +92,15 @@ function Summary({ currentStep, setCurrentStep }) {
             <Button
               onClick={() => setCurrentStep(3)}
               variant="back"
+              id='back'
+              aria-label='go back'
             />
             <Button
               onClick={() => setCompleted(!completed)}
               variant="confirm"
               text="confirm"
+              id='confirm'
+              aria-label='confirm plan'
             />
           </div>
         </div>

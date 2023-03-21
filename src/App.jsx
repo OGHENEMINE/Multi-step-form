@@ -12,7 +12,7 @@ function GeneralLayout() {
  
   return (
     <PlanProvider>
-      <div className="max-w-screen h-screen overflow-hidden rounded-lg font-ubuntu">
+      <main className="max-w-screen overflow-hidden rounded-lg font-ubuntu">
         <div className="lg:flex">
           <Sidebar currentStep={currentStep} />
           <div className="lg:block hidden mx-auto w-full mt-12 overflow-hidden px-10 xl:px-0 mb-3 rounded-md">
@@ -52,7 +52,7 @@ function GeneralLayout() {
             />
           </div>
         </div>
-      </div>
+      </main>
     </PlanProvider>
   );
 }

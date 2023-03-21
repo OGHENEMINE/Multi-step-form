@@ -8,9 +8,9 @@ function Input({ label, id, type, error, ...rest }, ref) {
         <label htmlFor={id} className="text-blue-900 tracking-wider font-medium md:text-xl">
           {label}
         </label>
-        <span className="text-red-500 font-medium text-sm md:text-base">
+        <p aria-live="polite" className="inline-block text-red-500 font-medium text-sm md:text-base">
           {error}
-        </span>
+        </p>
       </div>
       {type !== 'checkbox' ? (
         <input
@@ -25,6 +25,7 @@ function Input({ label, id, type, error, ...rest }, ref) {
           {...rest}
           ref={ref}
           id={id}
+          autoComplete='true'
         />
       ) : (
         <input className="w-4 lg:w-3 h-4 lg:h-3" type={type} {...rest} ref={ref} />

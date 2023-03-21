@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "./Input";
 import Button from "./Button";
-import CountryList, { getList } from "country-list-with-dial-code-and-flag";
 
 function PersonalInfo({ currentStep, setCurrentStep }) {
   const [form, setForm] = useState({
@@ -12,7 +11,6 @@ function PersonalInfo({ currentStep, setCurrentStep }) {
     country: "",
     phone: "",
   });
-  const [countryError, setCountryError] = useState("");
   const {
     handleSubmit,
     register,
@@ -21,9 +19,6 @@ function PersonalInfo({ currentStep, setCurrentStep }) {
 
   const onsubmit = (data) => {
     console.log(data);
-    // if (form.country === '') {
-    //   return setCountryError("select a country");
-    // }
     setCurrentStep(2);
   };
 
@@ -42,7 +37,7 @@ function PersonalInfo({ currentStep, setCurrentStep }) {
         hidden: currentStep !== 1,
       })}
     >
-      <form onSubmit={handleSubmit(onsubmit)} noValidate>
+      <form onSubmit={handleSubmit(onsubmit)} noValidate={true}>
         <div className="bg-white lg:shadow-none lg:rounded-none shadow rounded-md lg:relative lg:top-0 lg:z-30 lg:py-0 px-6 xl:px-0 py-10 absolute top-28 left-1/2 -translate-x-1/2 md:max-w-[750px] w-full lg:h-[520px]">
           <div className="text-gray-400 tracking-widest flex flex-col space-y-2">
             <h1 className="text-blue-900 font-bold text-4xl md:text-5xl">
@@ -103,7 +98,7 @@ function PersonalInfo({ currentStep, setCurrentStep }) {
             />
           </div>
           <div className="px-6 lg:px-0 bg-gray-50 md:-bottom-12 -bottom-32 py-3 flex items-center justify-end absolute left-0 lg:bg-inherit right-0">
-            <Button variant="next" text="next step" />
+            <Button aria-label='next step' variant="next" text="next step" />
           </div>
         </div>
       </form>
